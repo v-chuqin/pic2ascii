@@ -18,7 +18,9 @@ def pic2ascii(filename):
         for x in range(size[0]):
             output += chars[pixs[x,y]/10]
         output += '\n'
-    print output
+    file  =open(filename+'.result','w')
+    file.write(output)
+    #print output
 
 def getsize(image):
     '''Calculate the target picture size
