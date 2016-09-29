@@ -5,7 +5,7 @@ import sys
 import Image
 
 HEIGHT = 100
-chars = "   ...',;:clodxkO0KXNWMMM"
+chars = "   ...',;:clodxkO0KXNWMMM "
 
 def pic2ascii(filename):
     output = ''
@@ -16,7 +16,11 @@ def pic2ascii(filename):
     pixs = image.load()
     for y in range(size[1]):
         for x in range(size[0]):
-            output += chars[pixs[x,y]/10]
+            try:
+                output += chars[pixs[x,y]/10]
+            except:
+                print pixs[x,y]
+                print pixs[x,y]/10
         output += '\n'
     file  =open(filename+'.result','w')
     file.write(output)
